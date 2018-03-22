@@ -38,15 +38,15 @@ a[data-toggle="tooltip"] {
 }
 
 .navbar-inverse {
-    background-color: #F89744;
-    border-color: #F89744;
+    background-color: rgb(200, 200, 200);
+    border-color: rgb(200, 200, 200);
 }
 .navbar-inverse .navbar-nav>li>a, .navbar-inverse .navbar-brand {
-    color: white;
+    color: rgb(40, 40, 40);
 }
 
 .navbar-inverse .navbar-nav>li>a:hover, a.fa.fa-home.fa-lg.navbar-brand:hover {
-     color: #f0f0f0;
+     color: rgb(100, 100, 100);
 }
 
 a.navbar-brand:hover {
@@ -54,11 +54,11 @@ a.navbar-brand:hover {
 }
 
 .navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
-    color: #F89744;
+    color: rgb(200, 200, 200);
 }
 
 .navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
-    background-color: #F89744;
+    background-color: rgb(200, 200, 200);
     color: #ffffff;
 }
 
