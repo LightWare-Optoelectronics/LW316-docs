@@ -3,10 +3,10 @@ repository: LightWare-Optoelectronics/LW316-docs
 output: web
 # this property is useful for conditional filtering of content that is separate from the PDF.
 
-topnav_title: Jekyll Documentation Theme
+topnav_title: LightWare LW316 documentation
 # this appears on the top navigation bar next to the home button
 
-site_title: Jekyll theme for documentation
+site_title: LightWare LW316 documentation
 # this appears in the html browser tab for the site title (seen mostly by search engines, not users)
 
 company_name: LightWare Optoelectroncis (Pty) Ltd
@@ -35,7 +35,7 @@ exclude:
   - .gitignore
 # these are the files and directories that jekyll will exclude from the build
 
-feedback_subject_line: Jekyll documentation theme
+feedback_subject_line: 
 
 feedback_email: rob@lightware.co.za
 # used as a contact email for the Feedback link in the top navigation bar
@@ -107,7 +107,7 @@ sidebars:
 - product2_sidebar
 - other
 
-description: "Intended as a documentation theme based on Jekyll for technical writers documenting software and other technical products, this theme has all the elements you would need to handle multiple products with both multi-level sidebar navigation, tags, and other documentation features."
+description: "LightWare LW316 documentation."
 # the description is used in the feed.xml file
 
 # needed for sitemap.xml file only
