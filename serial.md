@@ -28,13 +28,16 @@ A serial communication packet, whether receving or transmitting, is composed of 
 
 !> `Flags` and `CRC` are 16 bit integers. Their bytes should be in little-endian order (least significant first) when being written into a packet.
 
+The ID byte represents the command to read or write.
+
 The packet always begins with a start byte of 0xFE and is followed by a set of flags as described below:
 
 | 15 .. 6 | 5 .. 1 | 0 |
 |---|---|---|
 | Packet length: 0 to 1023 | Reserved | Write bit |
 
-The ID byte represents the command to read or write.
+!> Note that the packet length includes the ID byte plus the data length.
+
 
 ## Checksum
 Some stuff about the crc. CRC 16 CCITT 0x1021
@@ -82,22 +85,24 @@ function createCRC(data, size) {
     return crc;
 }
 ```
-
-## Packet tool
-
-Here is a simple tool for verifying your packet data:
-
-<div class="packet-tool">
-    <p>Command ID:</p>
-    <p>Read/Write:</p>
-    <p>Data bytes:</p>
-    <button onclick="testFeature()">Compute packet</button>
-    <button onclick="testFeature()">Clear</button>
-    <p>Packet bytes:</p>
-</div>
-
 ## Initiate serial interface
 
 Here is the recommended procedure for establishing communication with the LW316:
 
-![alt text](images/flow_connect_serial.png "Initiate serial flowchart")
+![alt text](images/flow_connect_serial.png "Initiate flowchart")
+
+## Request & response
+
+Here is the recommended procedure for sending a command request and reading the response:
+
+![alt text](images/serial_request_response_flow.png "Request/response flowchart")
+
+## Packet reading
+
+![alt text](images/packet_reading.png "Request/response flowchart")
+
+## Application implementation
+
+Applies to both serial/i2c, more of an overall concept.
+
+![alt text](images/basic_flow.png "Request/response flowchart")

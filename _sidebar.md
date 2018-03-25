@@ -12,3 +12,8 @@
 * Command reference
   * [List](commands.md)
   * [Detailed descriptions](command_detail.md)
+
+* Implementation guides
+  * [Streaming data](/)
+  * [Saving parameters](/)
+  * [Upgrading firmware](/)
