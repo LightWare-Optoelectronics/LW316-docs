@@ -1,7 +1,7 @@
-* Fundamentals
-  * [Version support](/)
-  * [Functionality](/)
-  * [Specifications](/)
+* Overview
+  * [This document](/)
+  * [Functionality](functionality.md)
+  * [Specifications](specs.md)
   * [Updating firmware](firmware.md)
 
 * Communication interfaces
@@ -14,6 +14,5 @@
   * [Detailed descriptions](command_detail.md)
 
 * Implementation guides
-  * [Streaming data](/)
-  * [Saving parameters](/)
-  * [Upgrading firmware](/)
+  * [Streaming data](streaming.md)
+  * [Saving parameters](saving.md)

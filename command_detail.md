@@ -1,54 +1,63 @@
 # Detailed command descriptions
 
+---
 ## 0. Product name
-?> Read 16 bytes (null terminated string)
 
-Read a 16 byte string indicating the product model name. This will always be `LW316` followed by a null terminator. You can use this to verify the LW316 is connected and operational over the selected interface. When the bootloader is active this will return `BOOT` followed by a null terminator.
 
+A `16 byte string` indicating the product model name. This will always be `LW316` followed by a null terminator. You can use this to verify the LW316 is connected and operational over the selected interface. When the bootloader is active this will return `BOOT` followed by a null terminator.
+
+|Read|Write|Persists|
+|---|---|---|
+| `16 byte string` | - | - |
+
+---
 ## 1. Hardware version
-?> Read 4 bytes
 
-Represents the current hardware revision. Different versions of firmware will be available for different hardware revisions.
+The hardware revision number as a `uint32`.
 
-| 1 | 2 | 3 | 4 |
-|---|---|---|---|
-|Version|Reserved|Reserved|Reserved|
+|Read|Write|Persists|
+|---|---|---|
+| `uint32` | - | - |
 
-> *Hardware version* will potentially be merged with *Firmware version* in the future.
-
+---
 ## 2. Firmware version
-?> Read 4 bytes
 
-Used to determine API compatability. The [version support](?id=version-support) section details which firmware versions this document applies to.
+The version of currently installed firmware represented as `4 bytes`. This can be used to identify the product for API compatability. The [product support](/?id=product-support) section details which firmware versions this document applies to.
 
 | 1 | 2 | 3 | 4 |
 |---|---|---|---|
 |Patch|Minor|Major|Reserved|
 
+|Read|Write|Persists|
+|---|---|---|
+| 4 bytes | - | - |
+
+---
 ## 3. Serial number
 
-?> Read 16 bytes
+A `16 byte string` (null terminated) of the serial identifier assigned during production.
 
-Serial identifier assigned during production. The 16 bytes will contain a null terminated ASCII string.
+|Read|Write|Persists|
+|---|---|---|
+| `16 byte string` | - | - |
 
+---
 ## 4. Command count
-
-?> Read 1 byte (uint8)
 
 Number of available command descriptors. Note that this includes reserved command IDs. Command descriptors can be read/requested using the `Command descriptor` or `Get all descriptors` commands.
 
+|Read|Write|Persists|
+|---|---|---|
+| `uint8` | - | - |
+
+---
 ## 5. Command descriptor
 
-**Write**
-
-?> Write 1 byte
-
-
-#### Read
-?> Read 512 bytes
+Reading the `Command descriptor` will return a `512 byte string` (null terminated) which contains JSON describing the command whose ID was last written to `Command descriptor`.
 
 !> Note that the serial interface will trim the byte output to the null terminator instead of emitting all 512 bytes, however over I2C all 512 bytes should be read to avoid missing the end of the descriptor.
 
+An example of a JSON descriptor:
 ```json
 {
 	"id": 0,
@@ -65,6 +74,12 @@ Number of available command descriptors. Note that this includes reserved comman
 }
 
 ```
+
+Writing a `uint8` to the `Command descriptor` will set the ID of the next command to be described.
+
+|Read|Write|Persists|
+|---|---|---|
+| `512 byte string` | `uint8` | - |
 
 ## 6. Get all descriptors
 
