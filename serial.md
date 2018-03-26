@@ -19,11 +19,13 @@ A packet for both requests and responses is composed of the following bytes:
 
 <table>
     <tr>
+        <td></td>
         <td colspan="3">Header</td>
         <td colspan="2">Payload</td>
         <td colspan="2">Checksum</td>
     </tr>
     <tr>
+        <td>**Byte:**</td>
         <td>Start</td>
         <td>Flags Low</td>
         <td>Flags High</td>
@@ -40,9 +42,11 @@ The `Flags` bytes form a 16 bit integer that represents the payload length and r
 
 <table>
     <tr>
+        <td>**Bit:**</td>
         <td>15</td><td>14</td><td>13</td><td>12</td><td>11</td><td>10</td><td>9</td><td>8</td><td>7</td><td>6</td><td>5</td><td>4</td><td>3</td><td>2</td><td>1</td><td>0</td>
     </tr>
     <tr>
+        <td></td>
         <td colspan="10">Payload length (0 to 1023)</td>
         <td colspan="5">Reserved</td>
         <td>W</td>
@@ -56,7 +60,7 @@ There will be between 0 and 1023 `Data` bytes depending on the command type. Eac
 The `CRC` bytes form a 16 bit checksum value used to validate the integrity of the packet data. Every byte in the packet except for the CRC itself is included in the checkum calculation.
 
 ## Checksum
-Each packet has a 2 byte checksum which is used to validate data integrity. The algorithm is `CRC-16-CCITT 0x1021`, which is idendtical to the XMODEM protocol.
+Each packet has a 2 byte checksum which is used to validate data integrity. The algorithm is `CRC-16-CCITT 0x1021` (idendtical to the one used for the XMODEM protocol).
 
 The CRC must be correctly formed for the LW316 to accept and process packets. Below are some examples in various languages for CRC calculation:
 
@@ -113,7 +117,7 @@ Here is the process for reading the raw serial byte stream and identifying packe
 
 ## Handling request & response
 
-Every request sent to the LW316 will receive a response, it is often useful to use the response as a way to indicate that the request was received and processed.
+Every request sent to the LW316 will receive a response, it is often useful to use the response as a way to determine if the request was received and processed.
 Here is the recommended procedure for sending a command request and reading the response:
 
 ![alt text](images/serial_request_response_flow.png "Request/response flowchart")
