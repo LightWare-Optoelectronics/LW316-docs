@@ -13,7 +13,7 @@
 |6	|[Get all descriptors](command_detail?id=_6-get-all-descriptors)	|Send a command descriptor for every command   	|W	|-	|0	|-|
 |7	|[UTF8 text message](command_detail?id=_7-utf8-text-message)		|Human readable text message					|-	|-	|-	|-|
 |9	|[User data](command_detail?id=_9-user-data)				        |16 byte store for user data					|RW	|16	|16	|Y|
-|10	|[Token](command_detail?id=_10-token)					            |Next useable safety token      				|R	|2	|-	|-|
+|10	|[Token](command_detail?id=_10-token)					            |Next usable safety token      				|R	|2	|-	|-|
 |11	|[Start bootloader](command_detail?id=_11-start-bootloader)		    |Start bootloader				    			|W	|-	|2	|-|
 |12	|[Save parameters](command_detail?id=_12-save-parameters)		    |Store persistable parameters					|W	|-	|2	|-|
 |30	|[Stream](command_detail?id=_30-stream)				                |Current data stream type						|RW	|4	|4	|N|

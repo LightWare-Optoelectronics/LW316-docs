@@ -22,7 +22,7 @@ The hardware revision number as a `uint32`.
 ---
 ## 2. Firmware version
 
-The version of currently installed firmware represented as `4 bytes`. This can be used to identify the product for API compatability. The [product support](/?id=product-support) section details which firmware versions this document applies to.
+The version of currently installed firmware represented as `4 bytes`. This can be used to identify the product for API compatibility. The [product support](/?id=product-support) section details which firmware versions this document applies to.
 
 | 1 | 2 | 3 | 4 |
 |---|---|---|---|
@@ -198,7 +198,7 @@ Statistics data is primarily used for debugging.
 
 *Serial interface only*
 
-This command contains distance data for each beam.
+This command contains distance data for each beam. Each beam result occurs 50 us from the previous one. If [30. Stream](command_detail?id=_30-stream) is set to `1` then this command will be output at 1250 Hz - this equates to 20000 distance readings per second, which is the full capability of the LW316.
 
 **32 bytes of data:**
 
@@ -228,7 +228,7 @@ This command contains distance data for each beam.
 ---
 ## 70. Median filter size
 
-The median filter is used to find the average distance while rejecting outliers. The size determines how many distance samples are used to find the average. A larger filter size results in a more consistent output at the expense of immediate accuracy. The filter operates independantly for each beam.
+The median filter is used to find the average distance while rejecting outliers. The size determines how many distance samples are used to find the average. A larger filter size results in a more consistent output at the expense of immediate accuracy. The filter operates independently for each beam.
 
 - Min: `3`
 - Max: `32`
@@ -243,7 +243,7 @@ Reading `Median filter size` will get a `uint8` of the current size. Writing `Me
 ---
 ## 71. Smoothing factor
 
-Smooths the distance output independantly for each beam over time.
+Smooths the distance output independently for each beam over time.
 
 |Value|Smoothing|
 |:---:|:---:|
